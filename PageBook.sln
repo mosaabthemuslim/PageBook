@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBook", "PageBook\PageBook.csproj", "{2BCCE501-8EB8-33F2-3DF1-62F689F28994}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBook.AppHost", "PageBook.AppHost\PageBook.AppHost.csproj", "{A43034FF-B8D6-4876-B8F0-0D61776BFDE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBook.ServiceDefaults", "PageBook.ServiceDefaults\PageBook.ServiceDefaults.csproj", "{9338951D-86D0-3B43-7928-3C5618961A06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBook.Domain", "PageBook.Domain\PageBook.Domain.csproj", "{944C07EA-FD29-4018-8FBC-5C85BD13DFE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBook.Infrastructure", "PageBook.Infrastructure\PageBook.Infrastructure.csproj", "{F2405FA0-044B-4B1C-8506-0CE15F5AD705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBook.Application", "PageBook.Application\PageBook.Application.csproj", "{3D7D7ABC-24D4-4221-9D11-52C6B2AC2EF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BCCE501-8EB8-33F2-3DF1-62F689F28994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BCCE501-8EB8-33F2-3DF1-62F689F28994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BCCE501-8EB8-33F2-3DF1-62F689F28994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BCCE501-8EB8-33F2-3DF1-62F689F28994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43034FF-B8D6-4876-B8F0-0D61776BFDE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43034FF-B8D6-4876-B8F0-0D61776BFDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43034FF-B8D6-4876-B8F0-0D61776BFDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43034FF-B8D6-4876-B8F0-0D61776BFDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9338951D-86D0-3B43-7928-3C5618961A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9338951D-86D0-3B43-7928-3C5618961A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9338951D-86D0-3B43-7928-3C5618961A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9338951D-86D0-3B43-7928-3C5618961A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944C07EA-FD29-4018-8FBC-5C85BD13DFE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944C07EA-FD29-4018-8FBC-5C85BD13DFE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944C07EA-FD29-4018-8FBC-5C85BD13DFE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944C07EA-FD29-4018-8FBC-5C85BD13DFE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2405FA0-044B-4B1C-8506-0CE15F5AD705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2405FA0-044B-4B1C-8506-0CE15F5AD705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2405FA0-044B-4B1C-8506-0CE15F5AD705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2405FA0-044B-4B1C-8506-0CE15F5AD705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D7D7ABC-24D4-4221-9D11-52C6B2AC2EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D7D7ABC-24D4-4221-9D11-52C6B2AC2EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D7D7ABC-24D4-4221-9D11-52C6B2AC2EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D7D7ABC-24D4-4221-9D11-52C6B2AC2EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C544CA1-22A7-4FAB-BDC3-41B45EA91809}
+	EndGlobalSection
+EndGlobal
