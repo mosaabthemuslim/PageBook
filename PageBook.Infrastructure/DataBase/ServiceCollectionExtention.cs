@@ -6,8 +6,6 @@ namespace PageBook.Infrastructure.DataBase;
 
 public static class ServiceCollectionExtention
 {
-
-
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<PageBookDbContext>(options =>
@@ -15,11 +13,12 @@ public static class ServiceCollectionExtention
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
 
-        //services.AddScoped<IUnitOfWork, UnitOfWork>();
-        //services.AddScoped<IUserRepository, UserRepository>();
-        //services.AddScoped<IPostRepository, PostRepository>();
-        //services.AddScoped<ICommentRepository, CommentRepository>();
+        // Add Identity services and Entity Framework stores.
+
+
+        // services.AddScoped<IUnitOfWork, UnitOfWork>();
+        // services.AddScoped<IUserRepository, UserRepository>();
+        // services.AddScoped<IPostRepository, PostRepository>();
+        // services.AddScoped<ICommentRepository, CommentRepository>();
     }
-
-
 }
