@@ -14,10 +14,6 @@ public static class ServiceCollectionExtention
         });
 
         // Add Identity services and Entity Framework stores.
-
-
-        // services.AddScoped<IUnitOfWork, UnitOfWork>();
-        // services.AddScoped<IUserRepository, UserRepository>();
         // services.AddScoped<IPostRepository, PostRepository>();
         // services.AddScoped<ICommentRepository, CommentRepository>();
     }
