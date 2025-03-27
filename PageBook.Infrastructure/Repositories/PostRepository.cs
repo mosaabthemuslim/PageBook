@@ -1,42 +1,51 @@
-﻿using PageBook.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using PageBook.Domain.Entities;
 using PageBook.Domain.Repositories;
+using PageBook.Infrastructure.DataBase;
 
 namespace PageBook.Infrastructure.Repositories;
 
-public class PostRepository : IPostRepository
+public class PostRepository(PageBookDbContext context) : IPostRepository
 {
-    public Task AddPostAsync(Post post)
+    public async Task<int> AddPostAsync(Post post)
     {
-        throw new NotImplementedException();
+
+        context.Posts.Add(post);
+        await context.SaveChangesAsync();
+        return post.Id;
+
+
     }
 
-    public Task DeletePostAsync(Post post)
+    public async Task DeletePostAsync(Post post)
     {
-        throw new NotImplementedException();
+
+        context.Posts.Remove(post);
+        await context.SaveChangesAsync();
     }
 
-    public Task<Post> GetPostByIdAsync(int id)
+    public async Task<Post> GetPostByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var post = await context.Posts.Include(p => p.Comments).FirstOrDefaultAsync(x => x.Id == id);
+        return post!;
     }
 
-    public Task<IEnumerable<Post>> GetPostsAsync()
+    public async Task<IEnumerable<Post>> GetPostsAsync()
     {
-        throw new NotImplementedException();
+        var posts = await context.Posts.ToListAsync();
+        return posts;
     }
 
-    public Task<IEnumerable<Post>> GetPostsByUserIdAsync(string userId)
+    public async Task<IEnumerable<Post>> GetPostsByUserIdAsync(string userId)
     {
-        throw new NotImplementedException();
+        var post = await context.Posts.Where(x => x.UserId == userId).ToListAsync();
+        return post;
+
     }
 
     public Task SaveChanges()
     {
-        throw new NotImplementedException();
+        return context.SaveChangesAsync();
     }
 
-    public Task UpdatePostAsync(Post post)
-    {
-        throw new NotImplementedException();
-    }
 }

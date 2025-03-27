@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PageBook.Domain.Repositories;
+using PageBook.Infrastructure.Repositories;
 
 namespace PageBook.Infrastructure.DataBase;
 
@@ -14,7 +16,7 @@ public static class ServiceCollectionExtention
         });
 
         // Add Identity services and Entity Framework stores.
-        // services.AddScoped<IPostRepository, PostRepository>();
-        // services.AddScoped<ICommentRepository, CommentRepository>();
+        services.AddScoped<IPostRepository, PostRepository>();
+        services.AddScoped<ICommentRepository, CommentRepository>();
     }
 }

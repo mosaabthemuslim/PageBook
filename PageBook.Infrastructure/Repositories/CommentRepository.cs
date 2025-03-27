@@ -1,32 +1,39 @@
-﻿using PageBook.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using PageBook.Domain.Entities;
 using PageBook.Domain.Repositories;
+using PageBook.Infrastructure.DataBase;
 
 namespace PageBook.Infrastructure.Repositories;
 
-public class CommentRepository : ICommentRepository
+public class CommentRepository(
+    PageBookDbContext context
+
+    ) : ICommentRepository
 {
-    public Task AddCommentAsync(Comment comment)
+    public async Task<int> AddCommentAsync(Comment comment)
     {
-        throw new NotImplementedException();
+        context.Comments.Add(comment);
+        await context.SaveChangesAsync();
+        return comment.Id;
     }
 
-    public Task DeleteCommentAsync(Comment comment)
+    public async Task DeleteCommentAsync(Comment comment)
     {
-        throw new NotImplementedException();
+
+        context.Comments.Remove(comment);
+        await context.SaveChangesAsync();
+
     }
 
     public Task<Comment> GetCommentByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var comment = context.Comments.FirstOrDefaultAsync(x => x.Id == id);
+        return comment!;
     }
 
-    public Task<IEnumerable<Comment>> GetCommentsByPostIdAsync(int postId)
+    public async Task<IEnumerable<Comment>> GetCommentsByPostIdAsync(int postId)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateCommentAsync(Comment comment)
-    {
-        throw new NotImplementedException();
+        var comments = await context.Comments.Where(x => x.PostId == postId).ToListAsync();
+        return comments;
     }
 }
