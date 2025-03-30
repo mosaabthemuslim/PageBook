@@ -8,7 +8,6 @@ using PageBook.Application.Posts.Dtos;
 using PageBook.Application.Posts.Queries.GetAllPosts;
 using PageBook.Application.Posts.Queries.GetPostById;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PageBook.Controllers
 {
@@ -24,6 +23,8 @@ namespace PageBook.Controllers
             var posts = await mediator.Send(getAllPostsQuery);
             return Ok(posts);
         }
+
+
 
         // GET api/<PostController>/5
         [HttpGet("{id}")]
