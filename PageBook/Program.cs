@@ -1,11 +1,14 @@
+using PageBook.Application.Extentions;
 using PageBook.Domain.Entities;
 using PageBook.Infrastructure.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.Services.AddApplication();
 builder.Services.AddIdentityApiEndpoints<User>()
     .AddEntityFrameworkStores<PageBookDbContext>();
+
 // Add services to the container.
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllers();
@@ -28,8 +31,8 @@ app.MapGroup("api/identity")
         .MapIdentityApi<User>();
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

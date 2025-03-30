@@ -26,7 +26,7 @@ public class PostRepository(PageBookDbContext context) : IPostRepository
 
     public async Task<Post> GetPostByIdAsync(int id)
     {
-        var post = await context.Posts.Include(p => p.Comments).FirstOrDefaultAsync(x => x.Id == id);
+        var post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
         return post!;
     }
 

@@ -12,8 +12,8 @@ using PageBook.Infrastructure.DataBase;
 namespace PageBook.Infrastructure.Migrations
 {
     [DbContext(typeof(PageBookDbContext))]
-    [Migration("20250325144712_init")]
-    partial class init
+    [Migration("20250328180848_updated")]
+    partial class updated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,44 +158,6 @@ namespace PageBook.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("PageBook.Domain.Entities.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Comments");
-                });
-
             modelBuilder.Entity("PageBook.Domain.Entities.Post", b =>
                 {
                     b.Property<int>("Id")
@@ -211,9 +173,6 @@ namespace PageBook.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -356,45 +315,17 @@ namespace PageBook.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PageBook.Domain.Entities.Comment", b =>
-                {
-                    b.HasOne("PageBook.Domain.Entities.Post", "Post")
-                        .WithMany("Comments")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PageBook.Domain.Entities.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Post");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("PageBook.Domain.Entities.Post", b =>
                 {
-                    b.HasOne("PageBook.Domain.Entities.User", "User")
+                    b.HasOne("PageBook.Domain.Entities.User", null)
                         .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PageBook.Domain.Entities.Post", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("PageBook.Domain.Entities.User", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
